@@ -59998,435 +59998,6 @@ logger.info(&apos;Frase: &apos; + aplFrases);
       </arvoreServicoFilhos>
     </br.com.opuscom.ibank.entity.ArvoreServico>
     <br.com.opuscom.ibank.entity.ArvoreServico>
-      <idArvoreServico>13659</idArvoreServico>
-      <servico>
-        <idServico>536</idServico>
-        <pasta>
-          <idPasta>99</idPasta>
-          <nome>Aplicativo</nome>
-          <path>Projetos/HUB-SOCIALBANK/Aplicativo</path>
-          <pastasFilhos/>
-          <elementos/>
-        </pasta>
-        <nome>EnviaDadosAppLog</nome>
-        <nickname></nickname>
-        <descricao></descricao>
-        <arvoreServicos/>
-        <servicosFilhos/>
-        <callComandos/>
-      </servico>
-      <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
-        <idComando>13659</idComando>
-        <comandosFilhos/>
-        <nome>BeginService</nome>
-        <parametrosComandos/>
-        <tipoSwitchCase class="long">0</tipoSwitchCase>
-      </comando>
-      <icOrdem>0</icOrdem>
-      <arvoreServicoFilhos class="linked-hash-set">
-        <br.com.opuscom.ibank.entity.ArvoreServico>
-          <idArvoreServico>13660</idArvoreServico>
-          <arvoreServicoPai reference="../../.."/>
-          <servico reference="../../../servico"/>
-          <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
-            <idComando>13660</idComando>
-            <comandosFilhos/>
-            <nome>switch</nome>
-            <parametrosComandos/>
-            <tipoSwitchCase class="long">0</tipoSwitchCase>
-            <valor>aplLigacao</valor>
-          </comando>
-          <icOrdem>0</icOrdem>
-          <arvoreServicoFilhos class="linked-hash-set">
-            <br.com.opuscom.ibank.entity.ArvoreServico>
-              <idArvoreServico>13661</idArvoreServico>
-              <arvoreServicoPai reference="../../.."/>
-              <servico reference="../../../../../servico"/>
-              <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
-                <idComando>13661</idComando>
-                <comandosFilhos/>
-                <nome>case</nome>
-                <parametrosComandos/>
-                <tipoSwitchCase class="long">1</tipoSwitchCase>
-                <valor>true</valor>
-              </comando>
-              <icOrdem>0</icOrdem>
-              <arvoreServicoFilhos class="linked-hash-set">
-                <br.com.opuscom.ibank.entity.ArvoreServico>
-                  <idArvoreServico>13662</idArvoreServico>
-                  <arvoreServicoPai reference="../../.."/>
-                  <servico reference="../../../../../../../servico"/>
-                  <comando>
-                    <idComando>13662</idComando>
-                    <comandosFilhos/>
-                    <nome>cJavaScript</nome>
-                    <descricao></descricao>
-                    <comentario></comentario>
-                    <className>opuscom.commons.chain.js.JavascriptCommand</className>
-                    <parametrosComandos>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7679</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>script</nome>
-                        <valor>logger.info(&apos;Envia Dados AppLog&apos;);
-
-if (aplCartao.length == 16) {
-  aplAuxCartao = aplCartao.substr(12,4);
-} else {
-  aplAuxCartao = &apos;&apos;;
-}
-if ((aplCPF == &apos;&apos;) || (aplCPF == &apos;undefined&apos;)) {
-  aplCPF = &apos;nulo&apos;;
-}
-if ((aplContrato == &apos;&apos;) || (aplContrato == &apos;undefined&apos;)) {
-  aplContrato = &apos;nulo&apos;;
-}
-if ((aplCnpj == &apos;&apos;) || (aplCnpj == &apos;undefined&apos;)) {
-  aplCnpj = &apos;nulo&apos;;
-}
-//
-if (aplProduto == &apos;BNDES&apos;) {
-  aplCPF = aplCnpj;
-  aplAplicacao = &apos;BNDES&apos;;
-} else if (aplProduto == &apos;ProjetosEspeciais&apos;) {
-  aplAplicacao = &apos;ESPECIAL&apos;;
-} else if (aplProduto == &apos;ValePresente&apos;) {
-  aplAplicacao = &apos;VALE&apos;;
-} else if (aplProduto == &apos;Governo&apos;) {
-  aplAplicacao = &apos;GOVERNO&apos;;
-} else if ((aplProduto == &apos;Construcard0800&apos;) || (aplProduto == &apos;Construcard3004&apos;)) {
-  aplAplicacao = &apos;Construcard&apos;; 
-} else {
-  aplAplicacao = aplProduto;
-}
-logger.info(&apos;aplAplicacao:&apos; + aplAplicacao);
-//
-logger.info(&apos;Termino=&apos; + aplTermino);
-aplFim = DNKBiblioteca.dthrPega(&apos;yyyyMMddhhmmss&apos;);
-aplDuracao = DNKBiblioteca.dthrDif(aplInicio, aplFim, &apos;yyyyMMddhhmmss&apos;, &apos;s&apos;);
-aplNaveg1 = &apos;&apos;;
-aplNaveg2 = &apos;&apos;;
-aplNaveg3 = &apos;&apos;;
-aplNaveg4 = &apos;&apos;;
-aplNaveg5 = &apos;&apos;;
-
-auxNaveg = aplDadosLog + &apos;; FIM:&apos; + DNKBiblioteca.dthrConverte(aplFim,&apos;yyyyMMddhhmmss&apos;,&apos;dd/MM/yyyy hh:mm:ss&apos;);
-i = 0;
-while ((auxNaveg.length &gt;0) &amp;&amp; (i&lt;5)) {
-  i += 1;
-  if (i == 1) {
-    aplNaveg1 = auxNaveg.substr(0,255);
-  } else if (i == 2) {
-    aplNaveg2 = auxNaveg.substr(0,255);
-  } else if (i == 3) {
-    aplNaveg3 = auxNaveg.substr(0,255);
-  } else if (i == 4) {
-    aplNaveg4 = auxNaveg.substr(0,255);
-  } else {
-    aplNaveg5 = auxNaveg.substr(0,255);
-  }
-  auxNaveg = auxNaveg.substr(255);
-}
-  
-</valor>
-                        <tipoParametro>19</tipoParametro>
-                        <icOrdem>0</icOrdem>
-                        <hashValue>8308</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                    </parametrosComandos>
-                  </comando>
-                  <icOrdem>0</icOrdem>
-                  <arvoreServicoFilhos class="linked-hash-set"/>
-                </br.com.opuscom.ibank.entity.ArvoreServico>
-                <br.com.opuscom.ibank.entity.ArvoreServico>
-                  <idArvoreServico>13663</idArvoreServico>
-                  <arvoreServicoPai reference="../../.."/>
-                  <servico reference="../../../../../../../servico"/>
-                  <comando>
-                    <idComando>13663</idComando>
-                    <comandosFilhos/>
-                    <nome>cLogServerNovo</nome>
-                    <descricao>Há também os parâmetros data, hora, placa, porta e URA que são preenchidos automaticamente pelo comando.</descricao>
-                    <comentario></comentario>
-                    <className>br.com.dnk.ura.command.impl.LogServerGenericoCommand</className>
-                    <parametrosComandos>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7691</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>dataHora</nome>
-                        <valor>&quot;-1&quot;</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>13</icOrdem>
-                        <hashValue>8320</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7692</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>campo4</nome>
-                        <valor>aplTermino</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>5</icOrdem>
-                        <hashValue>8321</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7693</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>aplicacao</nome>
-                        <valor>aplAplicacao</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>12</icOrdem>
-                        <hashValue>8322</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7680</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>numA</nome>
-                        <valor>numA</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>0</icOrdem>
-                        <hashValue>8309</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7681</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>numB</nome>
-                        <valor>numB</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>1</icOrdem>
-                        <hashValue>8310</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7682</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>campo10</nome>
-                        <valor>aplNaveg5</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>11</icOrdem>
-                        <hashValue>8311</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7683</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>campo5</nome>
-                        <valor>aplDuracao</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>6</icOrdem>
-                        <hashValue>8312</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7684</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>campo1</nome>
-                        <valor>aplCPF</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>2</icOrdem>
-                        <hashValue>8313</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7685</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>campo7</nome>
-                        <valor>aplNaveg2</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>8</icOrdem>
-                        <hashValue>8314</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7686</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>campo6</nome>
-                        <valor>aplNaveg1</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>7</icOrdem>
-                        <hashValue>8315</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7687</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>campo3</nome>
-                        <valor>aplAuxCartao</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>4</icOrdem>
-                        <hashValue>8316</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7688</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>campo9</nome>
-                        <valor>aplNaveg4</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>10</icOrdem>
-                        <hashValue>8317</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7689</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>campo2</nome>
-                        <valor>aplContrato</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>3</icOrdem>
-                        <hashValue>8318</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7690</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>campo8</nome>
-                        <valor>aplNaveg3</valor>
-                        <tipoParametro>1</tipoParametro>
-                        <icOrdem>9</icOrdem>
-                        <hashValue>8319</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                    </parametrosComandos>
-                  </comando>
-                  <icOrdem>1</icOrdem>
-                  <arvoreServicoFilhos class="linked-hash-set"/>
-                </br.com.opuscom.ibank.entity.ArvoreServico>
-                <br.com.opuscom.ibank.entity.ArvoreServico>
-                  <idArvoreServico>13664</idArvoreServico>
-                  <arvoreServicoPai reference="../../.."/>
-                  <servico reference="../../../../../../../servico"/>
-                  <comando>
-                    <idComando>13664</idComando>
-                    <comandosFilhos/>
-                    <nome>cJavaScript</nome>
-                    <descricao></descricao>
-                    <comentario>EXPORTADOR BI</comentario>
-                    <className>opuscom.commons.chain.js.JavascriptCommand</className>
-                    <parametrosComandos>
-                      <br.com.opuscom.ibank.entity.ParametrosComando>
-                        <idParametroComando>7694</idParametroComando>
-                        <comando reference="../../.."/>
-                        <nome>script</nome>
-                        <valor>logger.info(&apos;PREPARANDO DADOS PARA EXPORTADOR BI&apos;);
-
-var exportador = &apos;SIM&apos;;
-try{
-  
-  //Ajuste feito para tratativa do CPF do social bank
-  if (aplCPF == &apos;00000000000&apos;){
-    logger.info(&apos;CPF ZERADO, TRATANDO PARA NÃO INFORMADO&apos;);
-    aplCPF = &apos;nulo&apos;;
-  }    
-  
-  if(aplCPF != &apos;nulo&apos;){
-    objLogger.Documento = aplCPF;
-  }
-  else{
-    objLogger.Documento = &apos;Não Informado&apos;;
-  }
-  
-  objLogger.Aplicacao = aplProduto;
-
-  
-  if(objLogger.Protocolo == &apos;&apos;) objLogger.Protocolo = &apos;SEM PROTOCOLO&apos;;
-  
-  objLogger.Duracao = aplDuracao;
-  objLogger.Termino = aplTermino;
-  
-  if(typeof(aplProductId) != &apos;undefined&apos; &amp;&amp; aplProductId != &apos;&apos; &amp;&amp; aplProductId != null &amp;&amp; aplProductId != &apos;null&apos;){
-    objLogger.Produto = aplProductId;
-  }else if(typeof(aplChannelId) != &apos;undefined&apos; &amp;&amp; aplChannelId != &apos;&apos; &amp;&amp; aplChannelId != null &amp;&amp; aplChannelId != &apos;null&apos;){
-    objLogger.Produto = aplChannelId;
-  }else{
-    objLogger.Produto= &apos;--&apos;;
-  }
-  
-}catch(err){
-  exportador = &apos;NAO&apos;;
-  logger.info(&apos;ALGO DEU ERRADO: &apos; + err);
-  logger.info(&apos;NAO ACIONAREI O EXPORTADOR SEM DADOS&apos;);
-}
-</valor>
-                        <tipoParametro>19</tipoParametro>
-                        <icOrdem>0</icOrdem>
-                        <hashValue>8323</hashValue>
-                      </br.com.opuscom.ibank.entity.ParametrosComando>
-                    </parametrosComandos>
-                  </comando>
-                  <icOrdem>2</icOrdem>
-                  <arvoreServicoFilhos class="linked-hash-set"/>
-                </br.com.opuscom.ibank.entity.ArvoreServico>
-                <br.com.opuscom.ibank.entity.ArvoreServico>
-                  <idArvoreServico>13665</idArvoreServico>
-                  <arvoreServicoPai reference="../../.."/>
-                  <servico reference="../../../../../../../servico"/>
-                  <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
-                    <idComando>13665</idComando>
-                    <comandosFilhos/>
-                    <nome>switch</nome>
-                    <parametrosComandos/>
-                    <tipoSwitchCase class="long">0</tipoSwitchCase>
-                    <valor>exportador</valor>
-                  </comando>
-                  <icOrdem>3</icOrdem>
-                  <arvoreServicoFilhos class="linked-hash-set">
-                    <br.com.opuscom.ibank.entity.ArvoreServico>
-                      <idArvoreServico>13666</idArvoreServico>
-                      <arvoreServicoPai reference="../../.."/>
-                      <servico reference="../../../../../../../../../servico"/>
-                      <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
-                        <idComando>13666</idComando>
-                        <comandosFilhos/>
-                        <nome>case</nome>
-                        <parametrosComandos/>
-                        <tipoSwitchCase class="long">1</tipoSwitchCase>
-                        <valor>SIM</valor>
-                      </comando>
-                      <icOrdem>0</icOrdem>
-                      <arvoreServicoFilhos class="linked-hash-set">
-                        <br.com.opuscom.ibank.entity.ArvoreServico>
-                          <idArvoreServico>13667</idArvoreServico>
-                          <arvoreServicoPai reference="../../.."/>
-                          <servico reference="../../../../../../../../../../../servico"/>
-                          <comando class="br.com.opuscom.ibank.entity.ComandoCallServico">
-                            <idComando>13667</idComando>
-                            <comandosFilhos/>
-                            <nome>callservico</nome>
-                            <parametrosComandos/>
-                            <tipoLocalRemoto class="long">0</tipoLocalRemoto>
-                          </comando>
-                          <icOrdem>0</icOrdem>
-                          <arvoreServicoFilhos class="linked-hash-set"/>
-                        </br.com.opuscom.ibank.entity.ArvoreServico>
-                      </arvoreServicoFilhos>
-                    </br.com.opuscom.ibank.entity.ArvoreServico>
-                    <br.com.opuscom.ibank.entity.ArvoreServico>
-                      <idArvoreServico>13668</idArvoreServico>
-                      <arvoreServicoPai reference="../../.."/>
-                      <servico reference="../../../../../../../../../servico"/>
-                      <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
-                        <idComando>13668</idComando>
-                        <comandosFilhos/>
-                        <nome>default</nome>
-                        <parametrosComandos/>
-                        <tipoSwitchCase class="long">2</tipoSwitchCase>
-                      </comando>
-                      <icOrdem>1</icOrdem>
-                      <arvoreServicoFilhos class="linked-hash-set"/>
-                    </br.com.opuscom.ibank.entity.ArvoreServico>
-                  </arvoreServicoFilhos>
-                </br.com.opuscom.ibank.entity.ArvoreServico>
-              </arvoreServicoFilhos>
-            </br.com.opuscom.ibank.entity.ArvoreServico>
-            <br.com.opuscom.ibank.entity.ArvoreServico>
-              <idArvoreServico>13669</idArvoreServico>
-              <arvoreServicoPai reference="../../.."/>
-              <servico reference="../../../../../servico"/>
-              <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
-                <idComando>13669</idComando>
-                <comandosFilhos/>
-                <nome>default</nome>
-                <parametrosComandos/>
-                <tipoSwitchCase class="long">2</tipoSwitchCase>
-              </comando>
-              <icOrdem>1</icOrdem>
-              <arvoreServicoFilhos class="linked-hash-set"/>
-            </br.com.opuscom.ibank.entity.ArvoreServico>
-          </arvoreServicoFilhos>
-        </br.com.opuscom.ibank.entity.ArvoreServico>
-      </arvoreServicoFilhos>
-    </br.com.opuscom.ibank.entity.ArvoreServico>
-    <br.com.opuscom.ibank.entity.ArvoreServico>
       <idArvoreServico>13670</idArvoreServico>
       <servico>
         <idServico>498</idServico>
@@ -63972,6 +63543,435 @@ aplEventoConsulta = &apos;C_ERRO_SERVICO_DETALHECARD_DOC&apos;;
                   <arvoreServicoFilhos class="linked-hash-set"/>
                 </br.com.opuscom.ibank.entity.ArvoreServico>
               </arvoreServicoFilhos>
+            </br.com.opuscom.ibank.entity.ArvoreServico>
+          </arvoreServicoFilhos>
+        </br.com.opuscom.ibank.entity.ArvoreServico>
+      </arvoreServicoFilhos>
+    </br.com.opuscom.ibank.entity.ArvoreServico>
+    <br.com.opuscom.ibank.entity.ArvoreServico>
+      <idArvoreServico>18096</idArvoreServico>
+      <servico>
+        <idServico>536</idServico>
+        <pasta>
+          <idPasta>99</idPasta>
+          <nome>Aplicativo</nome>
+          <path>Projetos/HUB-SOCIALBANK/Aplicativo</path>
+          <pastasFilhos/>
+          <elementos/>
+        </pasta>
+        <nome>EnviaDadosAppLog</nome>
+        <nickname></nickname>
+        <descricao></descricao>
+        <arvoreServicos/>
+        <servicosFilhos/>
+        <callComandos/>
+      </servico>
+      <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
+        <idComando>18164</idComando>
+        <comandosFilhos/>
+        <nome>BeginService</nome>
+        <parametrosComandos/>
+        <tipoSwitchCase class="long">0</tipoSwitchCase>
+      </comando>
+      <icOrdem>0</icOrdem>
+      <arvoreServicoFilhos class="linked-hash-set">
+        <br.com.opuscom.ibank.entity.ArvoreServico>
+          <idArvoreServico>18095</idArvoreServico>
+          <arvoreServicoPai reference="../../.."/>
+          <servico reference="../../../servico"/>
+          <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
+            <idComando>18163</idComando>
+            <comandosFilhos/>
+            <nome>switch</nome>
+            <parametrosComandos/>
+            <tipoSwitchCase class="long">0</tipoSwitchCase>
+            <valor>aplLigacao</valor>
+          </comando>
+          <icOrdem>0</icOrdem>
+          <arvoreServicoFilhos class="linked-hash-set">
+            <br.com.opuscom.ibank.entity.ArvoreServico>
+              <idArvoreServico>18101</idArvoreServico>
+              <arvoreServicoPai reference="../../.."/>
+              <servico reference="../../../../../servico"/>
+              <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
+                <idComando>18169</idComando>
+                <comandosFilhos/>
+                <nome>case</nome>
+                <parametrosComandos/>
+                <tipoSwitchCase class="long">1</tipoSwitchCase>
+                <valor>true</valor>
+              </comando>
+              <icOrdem>0</icOrdem>
+              <arvoreServicoFilhos class="linked-hash-set">
+                <br.com.opuscom.ibank.entity.ArvoreServico>
+                  <idArvoreServico>18092</idArvoreServico>
+                  <arvoreServicoPai reference="../../.."/>
+                  <servico reference="../../../../../../../servico"/>
+                  <comando>
+                    <idComando>18160</idComando>
+                    <comandosFilhos/>
+                    <nome>cJavaScript</nome>
+                    <descricao></descricao>
+                    <comentario></comentario>
+                    <className>opuscom.commons.chain.js.JavascriptCommand</className>
+                    <parametrosComandos>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10792</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>script</nome>
+                        <valor>logger.info(&apos;Envia Dados AppLog&apos;);
+
+if (aplCartao.length == 16) {
+  aplAuxCartao = aplCartao.substr(12,4);
+} else {
+  aplAuxCartao = &apos;&apos;;
+}
+if ((aplCPF == &apos;&apos;) || (aplCPF == &apos;undefined&apos;)) {
+  aplCPF = &apos;nulo&apos;;
+}
+if ((aplContrato == &apos;&apos;) || (aplContrato == &apos;undefined&apos;)) {
+  aplContrato = &apos;nulo&apos;;
+}
+if ((aplCnpj == &apos;&apos;) || (aplCnpj == &apos;undefined&apos;)) {
+  aplCnpj = &apos;nulo&apos;;
+}
+//
+if (aplProduto == &apos;BNDES&apos;) {
+  aplCPF = aplCnpj;
+  aplAplicacao = &apos;BNDES&apos;;
+} else if (aplProduto == &apos;ProjetosEspeciais&apos;) {
+  aplAplicacao = &apos;ESPECIAL&apos;;
+} else if (aplProduto == &apos;ValePresente&apos;) {
+  aplAplicacao = &apos;VALE&apos;;
+} else if (aplProduto == &apos;Governo&apos;) {
+  aplAplicacao = &apos;GOVERNO&apos;;
+} else if ((aplProduto == &apos;Construcard0800&apos;) || (aplProduto == &apos;Construcard3004&apos;)) {
+  aplAplicacao = &apos;Construcard&apos;; 
+} else {
+  aplAplicacao = aplProduto;
+}
+logger.info(&apos;aplAplicacao:&apos; + aplAplicacao);
+//
+logger.info(&apos;Termino=&apos; + aplTermino);
+aplFim = DNKBiblioteca.dthrPega(&apos;yyyyMMddhhmmss&apos;);
+aplDuracao = DNKBiblioteca.dthrDif(aplInicio, aplFim, &apos;yyyyMMddhhmmss&apos;, &apos;s&apos;);
+aplNaveg1 = &apos;&apos;;
+aplNaveg2 = &apos;&apos;;
+aplNaveg3 = &apos;&apos;;
+aplNaveg4 = &apos;&apos;;
+aplNaveg5 = &apos;&apos;;
+
+auxNaveg = aplDadosLog + &apos;; FIM:&apos; + DNKBiblioteca.dthrConverte(aplFim,&apos;yyyyMMddhhmmss&apos;,&apos;dd/MM/yyyy hh:mm:ss&apos;);
+i = 0;
+while ((auxNaveg.length &gt;0) &amp;&amp; (i&lt;5)) {
+  i += 1;
+  if (i == 1) {
+    aplNaveg1 = auxNaveg.substr(0,255);
+  } else if (i == 2) {
+    aplNaveg2 = auxNaveg.substr(0,255);
+  } else if (i == 3) {
+    aplNaveg3 = auxNaveg.substr(0,255);
+  } else if (i == 4) {
+    aplNaveg4 = auxNaveg.substr(0,255);
+  } else {
+    aplNaveg5 = auxNaveg.substr(0,255);
+  }
+  auxNaveg = auxNaveg.substr(255);
+}
+  
+</valor>
+                        <tipoParametro>19</tipoParametro>
+                        <icOrdem>0</icOrdem>
+                        <hashValue>11421</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                    </parametrosComandos>
+                  </comando>
+                  <icOrdem>0</icOrdem>
+                  <arvoreServicoFilhos class="linked-hash-set"/>
+                </br.com.opuscom.ibank.entity.ArvoreServico>
+                <br.com.opuscom.ibank.entity.ArvoreServico>
+                  <idArvoreServico>18098</idArvoreServico>
+                  <arvoreServicoPai reference="../../.."/>
+                  <servico reference="../../../../../../../servico"/>
+                  <comando>
+                    <idComando>18166</idComando>
+                    <comandosFilhos/>
+                    <nome>cLogServerNovo</nome>
+                    <descricao>Há também os parâmetros data, hora, placa, porta e URA que são preenchidos automaticamente pelo comando.</descricao>
+                    <comentario></comentario>
+                    <className>br.com.dnk.ura.command.impl.LogServerGenericoCommand</className>
+                    <parametrosComandos>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10795</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>numA</nome>
+                        <valor>numA</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>0</icOrdem>
+                        <hashValue>11424</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10796</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>campo1</nome>
+                        <valor>aplCPF</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>2</icOrdem>
+                        <hashValue>11425</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10797</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>campo2</nome>
+                        <valor>aplContrato</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>3</icOrdem>
+                        <hashValue>11426</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10798</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>campo3</nome>
+                        <valor>aplAuxCartao</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>4</icOrdem>
+                        <hashValue>11427</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10799</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>campo4</nome>
+                        <valor>aplTermino</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>5</icOrdem>
+                        <hashValue>11428</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10800</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>campo5</nome>
+                        <valor>aplDuracao</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>6</icOrdem>
+                        <hashValue>11429</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10801</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>campo6</nome>
+                        <valor>aplNaveg1</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>7</icOrdem>
+                        <hashValue>11430</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10802</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>campo7</nome>
+                        <valor>aplNaveg2</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>8</icOrdem>
+                        <hashValue>11431</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10803</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>campo8</nome>
+                        <valor>aplNaveg3</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>9</icOrdem>
+                        <hashValue>11432</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10804</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>campo10</nome>
+                        <valor>aplNaveg5</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>11</icOrdem>
+                        <hashValue>11433</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10805</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>campo9</nome>
+                        <valor>aplNaveg4</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>10</icOrdem>
+                        <hashValue>11434</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10806</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>aplicacao</nome>
+                        <valor>aplAplicacao</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>12</icOrdem>
+                        <hashValue>11435</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10807</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>dataHora</nome>
+                        <valor>&quot;-1&quot;</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>13</icOrdem>
+                        <hashValue>11436</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10794</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>numB</nome>
+                        <valor>numB</valor>
+                        <tipoParametro>1</tipoParametro>
+                        <icOrdem>1</icOrdem>
+                        <hashValue>11423</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                    </parametrosComandos>
+                  </comando>
+                  <icOrdem>1</icOrdem>
+                  <arvoreServicoFilhos class="linked-hash-set"/>
+                </br.com.opuscom.ibank.entity.ArvoreServico>
+                <br.com.opuscom.ibank.entity.ArvoreServico>
+                  <idArvoreServico>18093</idArvoreServico>
+                  <arvoreServicoPai reference="../../.."/>
+                  <servico reference="../../../../../../../servico"/>
+                  <comando>
+                    <idComando>18161</idComando>
+                    <comandosFilhos/>
+                    <nome>cJavaScript</nome>
+                    <descricao></descricao>
+                    <comentario>EXPORTADOR BI</comentario>
+                    <className>opuscom.commons.chain.js.JavascriptCommand</className>
+                    <parametrosComandos>
+                      <br.com.opuscom.ibank.entity.ParametrosComando>
+                        <idParametroComando>10793</idParametroComando>
+                        <comando reference="../../.."/>
+                        <nome>script</nome>
+                        <valor>logger.info(&apos;PREPARANDO DADOS PARA EXPORTADOR BI&apos;);
+
+var exportador = &apos;SIM&apos;;
+try{
+  
+  //Ajuste feito para tratativa do CPF do social bank
+  if (aplCPF == &apos;00000000000&apos;){
+    logger.info(&apos;CPF ZERADO, TRATANDO PARA NÃO INFORMADO&apos;);
+    aplCPF = &apos;nulo&apos;;
+  }    
+  
+  if(aplCPF != &apos;nulo&apos;){
+    objLogger.Documento = aplCPF;
+  }
+  else{
+    objLogger.Documento = &apos;Não Informado&apos;;
+  }
+  
+  objLogger.Aplicacao = aplProduto;
+
+  
+  if(objLogger.Protocolo == &apos;&apos;) objLogger.Protocolo = &apos;SEM PROTOCOLO&apos;;
+  
+  objLogger.Duracao = aplDuracao;
+  objLogger.Termino = aplTermino;
+  
+  if(typeof(aplProductId) != &apos;undefined&apos; &amp;&amp; aplProductId != &apos;&apos; &amp;&amp; aplProductId != null &amp;&amp; aplProductId != &apos;null&apos;){
+    objLogger.Produto = aplProductId;
+  }else if(typeof(aplChannelId) != &apos;undefined&apos; &amp;&amp; aplChannelId != &apos;&apos; &amp;&amp; aplChannelId != null &amp;&amp; aplChannelId != &apos;null&apos;){
+    objLogger.Produto = aplChannelId;
+  }else{
+    objLogger.Produto= &apos;--&apos;;
+  }
+  
+}catch(err){
+  exportador = &apos;NAO&apos;;
+  logger.info(&apos;ALGO DEU ERRADO: &apos; + err);
+  logger.info(&apos;NAO ACIONAREI O EXPORTADOR SEM DADOS&apos;);
+}
+</valor>
+                        <tipoParametro>19</tipoParametro>
+                        <icOrdem>0</icOrdem>
+                        <hashValue>11422</hashValue>
+                      </br.com.opuscom.ibank.entity.ParametrosComando>
+                    </parametrosComandos>
+                  </comando>
+                  <icOrdem>2</icOrdem>
+                  <arvoreServicoFilhos class="linked-hash-set"/>
+                </br.com.opuscom.ibank.entity.ArvoreServico>
+                <br.com.opuscom.ibank.entity.ArvoreServico>
+                  <idArvoreServico>18094</idArvoreServico>
+                  <arvoreServicoPai reference="../../.."/>
+                  <servico reference="../../../../../../../servico"/>
+                  <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
+                    <idComando>18162</idComando>
+                    <comandosFilhos/>
+                    <nome>switch</nome>
+                    <parametrosComandos/>
+                    <tipoSwitchCase class="long">0</tipoSwitchCase>
+                    <valor>exportador</valor>
+                  </comando>
+                  <icOrdem>3</icOrdem>
+                  <arvoreServicoFilhos class="linked-hash-set">
+                    <br.com.opuscom.ibank.entity.ArvoreServico>
+                      <idArvoreServico>18100</idArvoreServico>
+                      <arvoreServicoPai reference="../../.."/>
+                      <servico reference="../../../../../../../../../servico"/>
+                      <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
+                        <idComando>18168</idComando>
+                        <comandosFilhos/>
+                        <nome>case</nome>
+                        <parametrosComandos/>
+                        <tipoSwitchCase class="long">1</tipoSwitchCase>
+                        <valor>SIM</valor>
+                      </comando>
+                      <icOrdem>0</icOrdem>
+                      <arvoreServicoFilhos class="linked-hash-set">
+                        <br.com.opuscom.ibank.entity.ArvoreServico>
+                          <idArvoreServico>18097</idArvoreServico>
+                          <arvoreServicoPai reference="../../.."/>
+                          <servico reference="../../../../../../../../../../../servico"/>
+                          <comando class="br.com.opuscom.ibank.entity.ComandoCallServico">
+                            <idComando>18165</idComando>
+                            <comandosFilhos/>
+                            <nome>callservico</nome>
+                            <parametrosComandos/>
+                            <tipoLocalRemoto class="long">0</tipoLocalRemoto>
+                          </comando>
+                          <icOrdem>0</icOrdem>
+                          <arvoreServicoFilhos class="linked-hash-set"/>
+                        </br.com.opuscom.ibank.entity.ArvoreServico>
+                      </arvoreServicoFilhos>
+                    </br.com.opuscom.ibank.entity.ArvoreServico>
+                    <br.com.opuscom.ibank.entity.ArvoreServico>
+                      <idArvoreServico>18091</idArvoreServico>
+                      <arvoreServicoPai reference="../../.."/>
+                      <servico reference="../../../../../../../../../servico"/>
+                      <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
+                        <idComando>18159</idComando>
+                        <comandosFilhos/>
+                        <nome>default</nome>
+                        <parametrosComandos/>
+                        <tipoSwitchCase class="long">2</tipoSwitchCase>
+                      </comando>
+                      <icOrdem>1</icOrdem>
+                      <arvoreServicoFilhos class="linked-hash-set"/>
+                    </br.com.opuscom.ibank.entity.ArvoreServico>
+                  </arvoreServicoFilhos>
+                </br.com.opuscom.ibank.entity.ArvoreServico>
+              </arvoreServicoFilhos>
+            </br.com.opuscom.ibank.entity.ArvoreServico>
+            <br.com.opuscom.ibank.entity.ArvoreServico>
+              <idArvoreServico>18099</idArvoreServico>
+              <arvoreServicoPai reference="../../.."/>
+              <servico reference="../../../../../servico"/>
+              <comando class="br.com.opuscom.ibank.entity.ComandoSwitchCase">
+                <idComando>18167</idComando>
+                <comandosFilhos/>
+                <nome>default</nome>
+                <parametrosComandos/>
+                <tipoSwitchCase class="long">2</tipoSwitchCase>
+              </comando>
+              <icOrdem>1</icOrdem>
+              <arvoreServicoFilhos class="linked-hash-set"/>
             </br.com.opuscom.ibank.entity.ArvoreServico>
           </arvoreServicoFilhos>
         </br.com.opuscom.ibank.entity.ArvoreServico>
